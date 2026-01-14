@@ -1,0 +1,227 @@
+/* ================= GLOBAL ================= */
+*{
+  box-sizing:border-box;
+  font-family:Inter,sans-serif;
+}
+
+body{
+  margin:0;
+  background:linear-gradient(135deg,#edf7ed,#f6fff4);
+  color:#1b4332;
+}
+
+/* ================= HEADER ================= */
+header{
+  text-align:center;
+  padding:22px 16px;
+  background:linear-gradient(135deg,#2d6a4f,#40916c);
+  color:white;
+  box-shadow:0 6px 18px rgba(0,0,0,.15);
+}
+
+header h1{
+  margin:0;
+  font-size:1.6rem;
+  font-weight:700;
+}
+
+header p{
+  margin-top:6px;
+  opacity:.9;
+  font-size:.95rem;
+}
+
+/* ================= LAYOUT ================= */
+.container{
+  padding:20px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:20px;
+}
+
+/* ================= CARD ================= */
+.card{
+  background:white;
+  padding:20px;
+  border-radius:18px;
+  box-shadow:0 12px 28px rgba(0,0,0,.08);
+  transition:transform .25s ease, box-shadow .25s ease;
+}
+
+.card:hover{
+  transform:translateY(-3px);
+  box-shadow:0 18px 36px rgba(0,0,0,.12);
+}
+
+.card.full{
+  grid-column:1/-1;
+}
+
+.card h3{
+  margin:0 0 12px 0;
+  font-size:1.05rem;
+  font-weight:600;
+}
+
+/* ================= VALUES ================= */
+.value,
+.big{
+  font-size:32px;
+  font-weight:700;
+  letter-spacing:.5px;
+}
+
+.value span,
+.big span{
+  font-size:1.2em;
+}
+
+/* ================= STATUS ================= */
+.status{
+  font-size:1.1rem;
+  font-weight:700;
+}
+
+.status.ok{
+  color:#2d6a4f;
+}
+
+.status.alert,
+.status.low{
+  color:#d00000;
+}
+
+/* ================= MODE BUTTONS ================= */
+.mode{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+
+.mode button{
+  padding:10px 18px;
+  border:none;
+  border-radius:22px;
+  cursor:pointer;
+  background:#b7e4c7;
+  font-weight:600;
+  color:#1b4332;
+  transition:.25s;
+}
+
+.mode button:hover{
+  background:#74c69d;
+}
+
+.mode button.active{
+  background:#2d6a4f;
+  color:white;
+  box-shadow:0 6px 14px rgba(45,106,79,.4);
+}
+
+/* ================= TOGGLE ================= */
+.toggle-wrap{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-top:10px;
+}
+
+.switch{
+  position:relative;
+  width:56px;
+  height:28px;
+}
+
+.switch input{
+  opacity:0;
+  width:0;
+  height:0;
+}
+
+.slider{
+  position:absolute;
+  inset:0;
+  background:#cfd8dc;
+  border-radius:28px;
+  transition:.3s;
+}
+
+.slider:before{
+  content:"";
+  position:absolute;
+  width:22px;
+  height:22px;
+  left:3px;
+  top:3px;
+  background:white;
+  border-radius:50%;
+  box-shadow:0 2px 6px rgba(0,0,0,.3);
+  transition:.3s;
+}
+
+.switch input:checked + .slider{
+  background:#2d6a4f;
+}
+
+.switch input:checked + .slider:before{
+  transform:translateX(28px);
+}
+
+.switch input:disabled + .slider{
+  background:#b0b0b0;
+  cursor:not-allowed;
+}
+
+/* ON / OFF LABELS */
+.toggle-wrap span{
+  font-weight:700;
+  font-size:.95rem;
+}
+
+/* ================= RANGE SLIDER ================= */
+input[type="range"]{
+  width:100%;
+  margin-top:10px;
+  accent-color:#2d6a4f;
+}
+
+/* ================= ALERT CARD ================= */
+.alert-card{
+  border-left:6px solid #2d6a4f;
+  background:linear-gradient(135deg,#f1fff6,#ffffff);
+}
+
+.alert-card p{
+  font-weight:600;
+  margin:8px 0 0 0;
+}
+
+/* ================= SENSOR COLOR STATES ================= */
+.card.soil{
+  border-left:6px solid #74c69d;
+}
+
+.card.soil.dry{
+  border-left-color:#d00000;
+}
+
+.card.soil.ok{
+  border-left-color:#2d6a4f;
+}
+
+/* ================= MOBILE ================= */
+@media(max-width:600px){
+  header h1{
+    font-size:1.3rem;
+  }
+
+  .value,
+  .big{
+    font-size:26px;
+  }
+
+  .card{
+    padding:16px;
+  }
+}
